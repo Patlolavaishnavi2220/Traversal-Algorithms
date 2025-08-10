@@ -1,0 +1,20 @@
+#adjacency list taken as input
+adj=[[1,2],[0,3],[0],[1]]
+class solution:
+    def depthfirstsearch(self,sNode,visited,ans,adj):
+        ans.append(sNode)
+        for i in adj[sNode]:
+            if(visited[i]==0):
+                visited[i]=1
+                self.depthfirstsearch(i,visited,ans,adj)
+    def dfs(self,adj):
+        v=len(adj)
+        visited=[0]*v
+        ans=[]
+        sNode=0
+        if(visited[sNode]==0):
+            visited[sNode]=1
+            self.depthfirstsearch(sNode,visited,ans,adj)
+        return ans
+ob=solution()
+print(ob.dfs(adj))
